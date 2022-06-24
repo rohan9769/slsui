@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Form } from 'react-bootstrap'
 import styles from '../style.module.css'
 import Operations from './Operations'
@@ -9,6 +9,10 @@ const ParamsForm = () => {
     //     {params : ""}
     // ])
     const[isToggled,setIsToggled] = useState(false)
+
+    useEffect(()=>{
+      console.log(isToggled)
+    },[isToggled])
 
   return (
     <div className={styles.paramFormsContainer}>
@@ -22,5 +26,4 @@ const ParamsForm = () => {
     </div>
   )
 }
-
 export default ParamsForm

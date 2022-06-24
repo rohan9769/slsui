@@ -5,13 +5,6 @@ import ParamsForm from "./ParamsForm";
 
 const ApiDesign = () =>{
 
-    // const handleMouseEnter = (e) =>{
-    //     e.target.style.background = 'grey'
-    // }
-
-    // const handleMouseLeave = e => {
-    //     e.target.style.background = "white"
-    //   }
 
     return(
         <>
@@ -24,5 +17,6 @@ const ApiDesign = () =>{
         </>
     )
 }
+ApiDesign.whyDidYouRender = true
 
 export default ApiDesign

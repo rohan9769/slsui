@@ -1,5 +1,6 @@
 import './App.css';
 import styles from './style.module.css'
+
 import { Col, Container, Row } from 'react-bootstrap';
 import ApiDetails from './components/ApiDetails';
 import ApiDesign from './components/ApiDesign';
@@ -27,5 +28,5 @@ function App() {
    </>
   );
 }
-
+App.whyDidYouRender = true
 export default App;

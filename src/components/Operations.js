@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../style.module.css'
-import { PathParamsForm } from './PathParamsForm'
 import {FaInfo,FaFileInvoiceDollar} from 'react-icons/fa'
 import ReactTooltip from "react-tooltip";
 
 const Operations = () => {
-  const[isToggled,setIsToggled] = useState(false)
+  const[isToggled,setIsToggled] = useState(true)
   const[paramsList,setParamsList] = useState([{params: ""}])
-  console.log(paramsList)
+  useEffect(()=>{
+    console.log(paramsList)
+    console.log(isToggled)
+  },[isToggled])
   const handleParamAdd = () =>{
     setParamsList([...paramsList,{params:""}])
   }
@@ -27,12 +29,12 @@ const Operations = () => {
   return (
     <div >
       <div className={styles.operationsBtnContainer}>
-        Path Param <button type='button' onClick={()=>setIsToggled(!isToggled)} className={styles.operationsBtn}> + </button>
+        {/* Path Param <button type='button' onClick={()=>setIsToggled(!isToggled)} className={styles.operationsBtn}> + </button> */}
       </div>
       {isToggled && paramsList.map((singleParam,index)=>(<div key={index} className={styles.pathParamsFormParentContainer}>
                     <div className={styles.pathParamsFormChildContainer}>
                     <form>
-                    <input name='name' value={singleParam.params} onChange={(e)=>handleParamsChange(e,index)} placeholder="Name..." style={{flex : 1 }} type="text"></input>
+                    <input name='name' value={singleParam.name} onChange={(e)=>handleParamsChange(e,index)} placeholder="Name..." style={{flex : 1 }} type="text"></input>
                     
                     <select>
                         <option>any</option>
@@ -57,4 +59,5 @@ const Operations = () => {
   )
 }
 
+Operations.whyDidYouRender = true
 export default Operations
